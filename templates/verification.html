@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=
+   , initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>verification</title>
+   <style>
+      * {
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+      }
+      body {
+         align-items: center;
+         justify-content: center;
+         background: black;
+         color: white;
+      }
+      .num-container {
+         padding: 20px;
+         margin: 20px 10%;
+         display: flex;
+      }
+      .verification h1 {
+         text-align: center;
+         margin: 59px 0 20px 0;
+      }
+      .verification p {
+         text-align: center;
+         margin-bottom: 20px;
+         padding: 0 30px;
+      }
+      .num-container input {
+         margin: 20px 10px;
+         width: 35px;
+         height: 35px;
+         font-size: 20px;
+         text-align: center;
+         background: black;
+         border: 2px solid #535353;
+         outline-color: #ffbd00;
+         color: white;
+      }
+      button {
+         margin: 40px 12px;
+         border-radius: 12px;
+         background: #ffbd00;
+         text-align: center;
+         color: #000;
+         width: 90%;
+         border: none;
+         outline: none;
+         padding: 12px;
+}
+   </style>
+</head>
+<body>
+   <header>
+      <div class="verification">
+         <h1>Verification</h1>
+         <p>we have sent to your email a four digit code please insert it below</p>
+      </div>
+   </header>
+   <main>
+      <div class="num-container">
+         <form action="" method="post">
+           <input type="text"  name="verification-code1" maxlength="1" pattern="\d{1}" required/>
+           <input type="text"  name="verification-code2" maxlength="1" pattern="\d{1}" required/>
+           <input type="text"  name="verification-code3" maxlength="1" pattern="\d{1}" required/>
+           <input type="text"  name="verification-code4" maxlength="1" pattern="\d{1}" required/>
+           <button>verify</button>
+         </form>
+      </div>
+   </main>
+   
+</body>
+</html>
