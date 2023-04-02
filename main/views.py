@@ -69,4 +69,12 @@ def signup(request):
 
 		
 def verification(request):
+	
+	if request.method == "POST":
+		verification1 = request.POST.get("verification-code1")
+		verification2 = request.POST.get("verification-code2")
+		verification3 = request.POST.get("verification-code3")
+		verification4 = request.POST.get("verification-code4")
+		
+		
 	return render(request, "verification.html")
