@@ -13,11 +13,11 @@ def signup(request):
 		return code
 		
 	
-	def verify(password):
-		reg_exp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8, 1000}$"
-		pattern = re.compile(reg_exp)
-		valid = re.search(pattern, password)
-		return valid
+	def validate_password(password):
+	       regular_expression = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,1000}$"
+	       pattern = re.compile(regular_expression)
+	       valid = re.search(pattern, password)
+	       return valid
 		
 		
 	if request.method == "POST":
@@ -28,8 +28,7 @@ def signup(request):
 		password = request.POST.get("password")
 		confirm_password = request.POST.get("confirm-password")
 		
-		valid_password = verify(password)
-		print(valid_password)
+		valid_password = validate_password(password)
 		
 		#authentications
 		if not User.objects.filter(username=username).exists():
@@ -46,7 +45,7 @@ def signup(request):
 						
 						code = gen_code()
 		
-						USER = "joshuajosephizzyjosh@gmail.com"
+						USER = "izzyjosh2@gmail.com"
 						PASSWORD = "xloatbqmtumttwjk"
 		
 						server = smtplib.SMTP("smtp.gmail.com",  587)
