@@ -29,6 +29,7 @@ def signup(request):
 		confirm_password = request.POST.get("confirm-password")
 		
 		valid_password = verify(password)
+		print(valid_password)
 		
 		#authentications
 		if not User.objects.filter(username=username).exists():
@@ -41,7 +42,21 @@ def signup(request):
 							email=email, 
 							password=password)
 						messages.info(request, f"account for {username} successfully created")
-						return redirect("signin")
+						
+						
+						code = gen_code()
+		
+						USER = "joshuajosephizzyjosh@gmail.com"
+						PASSWORD = "xloatbqmtumttwjk"
+		
+						server = smtplib.SMTP("smtp.gmail.com",  587)
+						server.starttls()
+						server.login(USER,  PASSWORD)
+
+						server.sendmail(USER, email,  f"{code}")
+						return redirect("verification")
+						
+						
 					else:
 						messages.error(request, "both password must match")
 				else:
@@ -49,23 +64,7 @@ def signup(request):
 			else:
 				messages.error(request, "email already exist!!")		
 		else:
-			messages.error(request, "username already exist!!")
-			
-		code = gen_code()
-		
-		USER = "joshuajosephizzyjosh@gmail.com"
-		PASSWORD = "xloatbqmtumttwjk"
-		
-		server = smtplib.SMTP("smtp.gmail.com",  587)
-		server.starttls()
-		server.login(USER,  PASSWORD)
-
-		server.sendmail(
-			USER, 
-			email,  
-			f"{code}"
-		)
-		return redirect("verification")
+			messages.error(request, "username already exist!!")		
 		
 	return render(request, "signup.html")
 
