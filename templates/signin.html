@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>signin</title>
+   <style>
+      * {
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+      }
+      body {
+         background: black;
+         color: white;
+      }
+      header {
+         text-align: center;
+         padding-top: 8em;
+         color: #fff;
+      }
+      form {
+         margin: 3em 10px;
+      }
+      input {
+         width: 90%;
+         color: #fff;
+         background: #232323;
+         border: none;
+         margin: 12px;
+         padding: 12px;
+         outline: none;
+      }
+      form a {
+         float: right;
+         margin-right: 22px;
+         color: #ffbd00;
+         margin-bottom: 3em;
+         text-decoration: none;
+         outline: none;
+      }
+      form button {
+         width: 90%;
+         padding: 12px;
+         margin: 12px;
+         border-radius: 12px;
+         background: #ffbd00;
+         border: none;
+         outline: none;
+      }
+      footer {
+         margin-top: 9em;
+         padding: 12px;
+         text-align: center;
+      }
+      footer a {
+         text-decoration: none;
+         color: #ffbd00;
+         outline: none;
+      }
+   </style>
+</head>
+<body>
+   <header>
+  {% for message in messages %}
+      <p>{{ message }}</p>
+   {% endfor %}
+      <p>welcome to</p>
+      <h1>Global Market</h1>
+   </header>
+   <main>
+      <form action="" method="post">
+      {% csrf_token %}
+         <input type="email" placeholder="email" name="email">
+         <input type="password" placeholder="password" name="password">
+         <a href="#">forgotten password</a>
+         <button>signin</button>
+      </form>
+   </main>
+   <footer>
+      <p>don't have an account? <a href="{% url 'signup' %}">signup</a></p>
+         
+   </footer>
+   
+</body>
+</html>
