@@ -56,7 +56,9 @@ def verification(request):
 		num = "0123456789"
 		code = random.choices(num, k=4)
 		return code
-	
+	print(request.user)
+	email = User.objects.get(username=request.user)
+
 	code = gen_code()
 		
 	USER = "izzyjosh2@gmail.com"
